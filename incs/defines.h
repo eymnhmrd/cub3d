@@ -6,7 +6,7 @@
 /*   By: ahamrad <ahamrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 23:30:54 by otaraki           #+#    #+#             */
-/*   Updated: 2023/12/29 05:29:24 by ahamrad          ###   ########.fr       */
+/*   Updated: 2024/01/15 04:34:42 by ahamrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_UP 126
-# define KEY_DOWN 125
+# define KEY_LEFT 263
+# define KEY_RIGHT 262
+# define KEY_UP 265
+# define KEY_DOWN 264
 
 
 # define KEY_PRESS 2

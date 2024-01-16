@@ -6,7 +6,7 @@
 /*   By: ahamrad <ahamrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 23:20:47 by otaraki           #+#    #+#             */
-/*   Updated: 2024/01/14 07:50:41 by ahamrad          ###   ########.fr       */
+/*   Updated: 2024/01/15 04:36:34 by ahamrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ int		main(int argc, char **argv)
     init_window(&cub);
     mlx_image_to_window(cub.mlx.mlx, cub.mlx.img.img, 0, 0);
     draw(&cub);
+    draw_player(&cub);
     raycaster(&cub);
     // mlx_image_to_window(cub.mlx.mlx, cub.mlx.img.img, 0, 0); 
 

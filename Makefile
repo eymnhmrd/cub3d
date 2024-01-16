@@ -6,11 +6,11 @@
 #    By: ahamrad <ahamrad@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 23:12:18 by otaraki           #+#    #+#              #
-#    Updated: 2024/01/12 21:30:03 by ahamrad          ###   ########.fr        #
+#    Updated: 2024/01/15 05:08:47 by ahamrad          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := cub3d
+EXE := cub3D
 
 ARCH := libft/libft.a
 MLX := MLX42/build/libmlx42.a

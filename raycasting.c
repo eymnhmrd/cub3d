@@ -6,7 +6,7 @@
 /*   By: ahamrad <ahamrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 02:23:30 by ahamrad           #+#    #+#             */
-/*   Updated: 2024/01/14 06:00:32 by ahamrad          ###   ########.fr       */
+/*   Updated: 2024/01/17 00:26:37 by ahamrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,18 +181,18 @@ void    raycaster(t_cub *cub)
 {
     double  mini_angle = FOV_ANGLE / WINDOW_WIDTH;
     double  angle_ray = cub->player.angle - (FOV_ANGLE / 2);
-    int     j = 0;
+    // int     j = 0;
 
     // printf("%f : ray angle\n", angle_ray);
     // printf("%f : limit\n",  cub->player.angle + (FOV_ANGLE / 2));
     // printf("%f : fov\n", (FOV_ANGLE / 2));
-    while (angle_ray < cub->player.angle + (FOV_ANGLE / 2) && j < WINDOW_WIDTH)
+    while (angle_ray < cub->player.angle + (FOV_ANGLE / 2)) //&& j < WINDOW_WIDTH)
     {
         // printf("salam\n");
         draw_line(angle_ray, cub->player.x, cub->player.y, (int)get_ray_length(cub, angle_ray), cub);
         // rendering(cub, angle_ray, j);
         angle_ray += mini_angle;
-        j++;
+        // j++;
     }
 }
 
@@ -217,14 +217,20 @@ void    draw_line(double angle, double x, double y, int len, t_cub *cub)
     {
         xx = cos(angle) * i;
         yy = sin(angle) * i;
-        // if ((x + xx) < WINDOW_WIDTH && (y + yy) < WINDOW_HEIGHT && (x + xx) > 0 && (y + yy) > 0)
-        mlx_put_pixel(cub->mlx.img.img, (int)x + xx, (int)y + yy, 0xfff);
+        if ((x + xx) < WINDOW_WIDTH && (y + yy) < WINDOW_HEIGHT && (x + xx) > 0 && (y + yy) > 0)
+            mlx_put_pixel(cub->mlx.img.img, (int)x + xx, (int)y + yy, 0xfff);
         i++;
     }
 }
 
 void    draw_player(t_cub *cub)
 {  
+    int i;
+    int xx;
+    int yy;
+    
+    i = 0;
+    
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x, (int)cub->player.y, 0xffffff);
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x, (int)cub->player.y + 1, 0xffffff);
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x, (int)cub->player.y - 1, 0xffffff);
@@ -234,11 +240,6 @@ void    draw_player(t_cub *cub)
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x - 1, (int)cub->player.y + 1, 0xffffff);
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x + 1, (int)cub->player.y + 1, 0xffffff);
     mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x + 1, (int)cub->player.y - 1, 0xffffff);
-    int i;
-    int xx;
-    int yy;
-    
-    i = 0;
     while (i < 20)
     {
         xx = cos(cub->player.angle) * i;
@@ -246,12 +247,11 @@ void    draw_player(t_cub *cub)
         mlx_put_pixel(cub->mlx.img.img, (int)cub->player.x + xx, (int)cub->player.y + yy, 0xffffff);
         i++;
     }
-
 }
 
 void    init_window(t_cub *cub)
 {
-    cub->mlx.mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3D", true);
+    cub->mlx.mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3D", 0);
     cub->mlx.img.img = mlx_new_image(cub->mlx.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 }
 
